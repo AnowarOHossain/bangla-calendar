@@ -74,11 +74,11 @@ bash
 ## 📁 Project Structure
 
 bangla-calendar/
-├── index.html
+├── index.html  
 ├── styles.css  
-├── calendar.js
-├── sitemap.xml 
-└── README.md  
+├── calendar.js  
+├── sitemap.xml   
+└── README.md    
 
 ## 🤝 Contributing
 
