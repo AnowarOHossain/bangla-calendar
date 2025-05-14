@@ -74,11 +74,11 @@ bash
 ## 📁 Project Structure
 
 bangla-calendar/
-├── index.html          # Main HTML structure
-├── styles.css          # Tailwind + custom styles and animations
-├── calendar.js         # Date logic, conversion, and UI updates
-├── sitemap.xml         # SEO enhancement
-└── README.md           # Project documentation
+├── index.html
+├── styles.css  
+├── calendar.js
+├── sitemap.xml 
+└── README.md  
 
 ## 🤝 Contributing
 
@@ -106,7 +106,9 @@ Contributions are welcome! Follow these simple steps:
 
 ## 👤 Developer Info
 
-**👨‍💻 Developed by**: Anowar Hossain
-📧 **Email**: [anowarhossain.dev@gmail.com](mailto:anowarhossain.dev@gmail.com)
+**👨‍💻 Developed by**: Anowar Hossain  
+
+📧 **Email**: [anowarhossain.dev@gmail.com](mailto:anowarhossain.dev@gmail.com)  
+
 🌐 GitHub: [Anowar Hossain](https://github.com/anowarohossain)
 
