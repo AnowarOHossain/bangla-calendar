@@ -45,7 +45,7 @@ git clone https://github.com/anowarohossain/bangla-calendar.git
 
 ### 2. Navigate to Project Directory
 
-bash
+bash  
 cd bangla-calendar
 
 ### 3. Open the App
@@ -73,7 +73,7 @@ bash
 
 ## 📁 Project Structure
 
-bangla-calendar/
+bangla-calendar/  
 ├── index.html  
 ├── styles.css  
 ├── calendar.js  
