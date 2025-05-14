@@ -15,6 +15,11 @@ A **simple**, **beautiful**, and **responsive** web application that displays th
 * 💫 **Smooth Animations** – Slide transitions while switching between months.
 * 🎨 **Modern UI** – Tailwind CSS and custom styles deliver a crisp and elegant look.
 
+## 📸 Screenshots
+
+### Homepage
+![Homepage](assets/Screenshot1.png)
+
 ## 🛠️ Tech Stack
 
 | Technology             | Purpose                            |
