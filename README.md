@@ -18,7 +18,7 @@ A **simple**, **beautiful**, and **responsive** web application that displays th
 ## 📸 Screenshots
 
 ### Homepage
-![Homepage](assets/Screenshot1.png)
+![Homepage](assets/Screenshot.png)
 
 ## 🛠️ Tech Stack
 
