@@ -1,48 +1,18 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bangla Calendar</title>
+    <title>বাংলা ক্যালেন্ডার ২০২৫ - Bangla Calendar 2025</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="বাংলা ক্যালেন্ডার ২০২৫: বিনামূল্যে বাংলা তারিখ, মাস, সাল দেখুন। Free Bangla Calendar 2025 for all devices.">
+    <meta name="keywords" content="বাংলা ক্যালেন্ডার, বঙ্গাব্দ ক্যালেন্ডার, বাংলা ক্যালেন্ডার ২০২৫, আজকের বাংলা তারিখ, বাংলা মাস, বাংলা সাল, গ্রেগরিয়ান থেকে বাংলা তারিখ রূপান্তর, Bangla Calendar, Bengali Calendar, Bangla Calendar 2025, Bengali Date Today, Bangla Month, Bangla Year, Gregorian to Bangla Date Converter, বাংলা তারিখ, অনলাইন বাংলা ক্যালেন্ডার, বিনামূল্যে বাংলা ক্যালেন্ডার">
+    <meta name="author" content="Your Name or Website Name">
+    <meta name="robots" content="index, follow">
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE">
+    <!-- Canonical Tag for Primary Domain -->
+    <link rel="canonical" href="https://banglacalendar.netlify.app/">
     <link href="styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap" rel="stylesheet">
 </head>

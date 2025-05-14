@@ -1,0 +1,9 @@
+{
+        "redirects": [
+          {
+            "source": "/",
+            "destination": "https://banglacalendar.netlify.app/",
+            "permanent": true
+          }
+        ]
+      }
