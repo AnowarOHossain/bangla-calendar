@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Noto Serif Bengali', sans-serif;
+    background-color: #f8e1e9; /* Soft pastel pink for page background */
+    margin: 0; /* Remove default body margin */
+}
+
+.calendar-container {
+    max-width: 500px; /* Reduced width for better fit on all devices */
+    margin: 0.5rem auto; /* Minimal margin */
+    background: linear-gradient(135deg, #ffecd2 0%, #b3cde0 100%); /* Peach to lavender gradient */
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    padding: 0.75rem; /* Reduced padding */
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.2rem; /* Reduced gap for compact layout */
+}
+
+.calendar-day {
+    padding: 0.4rem; /* Minimal padding */
+    text-align: center;
+    border-radius: 0.3rem;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+.calendar-day:hover {
+    background-color: #e0e7ff;
+    transform: scale(1.05);
+}
+
+.current-day {
+    background-color: #7c3aed; /* Vibrant purple for current day */
+    color: white;
+    font-weight: bold;
+}
+
+.weekday-header {
+    font-weight: bold;
+    text-align: center;
+    padding: 0.2rem; /* Minimal padding */
+    background-color: #1e3a8a; /* Deep navy for contrast */
+    color: white;
+    border-radius: 0.2rem;
+    font-size: 0.75rem; /* Smaller font for weekdays */
+}
+
+.nav-button {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 0.2rem 0.4rem; /* Minimal padding */
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.75rem; /* Smaller font */
+}
+
+.nav-button:hover {
+    background-color: #7c3aed;
+}
+
+.empty-day {
+    background-color: transparent;
+}
+
+.calendar-title {
+    text-align: center;
+    font-size: 1.5rem; /* Smaller title */
+    font-weight: 700;
+    color: #1e3a8a; /* Match navy for consistency */
+    margin-bottom: 0.5rem; /* Reduced margin */
+}
+
+@media (max-width: 768px) {
+    .calendar-container {
+        max-width: 90%; /* Use most of the viewport */
+        padding: 0.5rem;
+        margin: 0.3rem auto;
+    }
+    .calendar-day {
+        padding: 0.3rem;
+        font-size: 0.7rem; /* Smaller font for days */
+    }
+    .calendar-title {
+        font-size: 1.2rem;
+    }
+    .nav-button {
+        padding: 0.2rem 0.3rem;
+        font-size: 0.7rem;
+    }
+    .weekday-header {
+        padding: 0.2rem;
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-container {
+        max-width: 95%; /* Maximize viewport usage */
+        padding: 0.4rem;
+    }
+    .calendar-day {
+        padding: 0.2rem;
+        font-size: 0.65rem; /* Minimal font size */
+    }
+    .calendar-title {
+        font-size: 1rem;
+    }
+    .nav-button {
+        padding: 0.15rem 0.25rem;
+        font-size: 0.65rem;
+    }
+    .weekday-header {
+        padding: 0.15rem;
+        font-size: 0.6rem;
+    }
+    .calendar-grid {
+        gap: 0.15rem; /* Tighter grid on small screens */
+    }
+}
+
+@media (max-width: 320px) {
+    .calendar-container {
+        padding: 0.3rem;
+    }
+    .calendar-day {
+        padding: 0.15rem;
+        font-size: 0.6rem;
+    }
+    .calendar-title {
+        font-size: 0.9rem;
+    }
+    .nav-button {
+        padding: 0.1rem 0.2rem;
+        font-size: 0.6rem;
+    }
+    .weekday-header {
+        padding: 0.1rem;
+        font-size: 0.55rem;
+    }
+}
