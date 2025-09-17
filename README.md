@@ -240,3 +240,11 @@ Released under the MIT License. Feel free to use, modify, and distribute with at
 
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
+## 🚀 Upcoming Features
+
+- [ ] Dark mode toggle
+- [ ] Bangla ↔ Gregorian date converter
+- [ ] Holiday highlighting
+- [ ] Language switcher (Bangla/English)
+- [ ] Responsive mobile layout
+- [ ] Event reminder notifications
