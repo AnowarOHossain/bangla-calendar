@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>বাংলা ক্যালেন্ডার</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="বিনামূল্যে বাংলা ক্যালেন্ডার: আজকের সঠিক বাংলা তারিখ, মাস, ঋতু, বাংলাদেশের সময় এবং গ্রেগরিয়ান থেকে বাংলা তারিখ রূপান্তর করুন।">
+    <meta name="keywords" content="
+        বাংলা ক্যালেন্ডার, বাংলা তারিখ আজ, বাংলা মাস, বাংলা সাল, বাংলা ঋতু, 
+        বাংলাদেশ সময়, ডিজিটাল ঘড়ি, গ্রেগরিয়ান থেকে বাংলা তারিখ, 
+        Bangla Calendar, Bengali Date Today, Bangla Month, Bangla Year, 
+        Bangla Season, Bangladesh Time, Digital Clock, 
+        Gregorian to Bangla Date Converter, বাংলা পঞ্জিকা, 
+        বঙ্গাব্দ ক্যালেন্ডার, বাংলা তারিখ কনভার্টার, 
+        বাংলা নববর্ষ, পহেলা বৈশাখ, বাংলা উৎসব, 
+        বাংলা ছুটির দিন, বাংলা ইভেন্ট ক্যালেন্ডার
+    ">
+    <meta name="author" content="Anowar Hossain">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="HITjyqPgrPPGp2JnGAXvNUXwwJ_V9WJ6Osik3JBnEHk" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://banglacalendar.netlify.app/" />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://banglacalendar.netlify.app/">
+    <meta property="og:title" content="বাংলা ক্যালেন্ডার - আজকের বাংলা তারিখ, মাস ও সময়">
+    <meta property="og:description" content="অনলাইন বাংলা ক্যালেন্ডার: আজকের সঠিক বাংলা তারিখ, মাস, ঋতু এবং বাংলাদেশের সময় দেখুন।">
+    <meta property="og:image" content="https://banglacalendar.netlify.app/images/social-preview.jpg">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="বাংলা ক্যালেন্ডার - আজকের বাংলা তারিখ, মাস ও সময়">
+    <meta name="twitter:description" content="অনলাইন বাংলা ক্যালেন্ডার: আজকের সঠিক বাংলা তারিখ, মাস, ঋতু এবং বাংলাদেশের সময় দেখুন।">
+    <meta name="twitter:image" content="https://banglacalendar.netlify.app/images/social-preview.jpg">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "বাংলা ক্যালেন্ডার - আজকের বাংলা তারিখ, মাস ও সময়",
+      "description": "অনলাইন বাংলা ক্যালেন্ডার ও ডিজিটাল ঘড়ি। দেখুন আজকের বাংলা তারিখ, মাস, ঋতু এবং বাংলাদেশের সময়।",
+      "url": "https://banglacalendar.netlify.app/",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Anowar Hossain"
+      }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+
+    <!-- Styles and Fonts -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&family=Orbitron:wght@400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="today-info">
+            <h2>আজ</h2>
+            <p id="today-bangla"></p>
+            <p id="today-english" style="font-size:0.95em;color:#1e3a8a;"></p>
+            <p id="today-season"></p>
+        </div>
+        <div class="calendar-container">
+            <div class="calendar-top">
+                <h1 id="calendar-title" class="calendar-title">বাংলা ক্যালেন্ডার</h1>
+                <div class="calendar-header">
+                    <div class="nav-buttons">
+                        <button class="nav-button" onclick="changeMonth(-1)">← Previous</button>
+                        <button class="nav-button" onclick="changeMonth(1)">Next →</button>
+                    </div>
+                    <h2 id="month-year"></h2>
+                </div>
+            </div>
+            <div>
+                <div class="calendar-grid" id="weekday-headers">
+                    <div class="weekday-header">রবি</div>
+                    <div class="weekday-header">সোম</div>
+                    <div class="weekday-header">মঙ্গল</div>
+                    <div class="weekday-header">বুধ</div>
+                    <div class="weekday-header">বৃহস্পতি</div>
+                    <div class="weekday-header">শুক্র</div>
+                    <div class="weekday-header">শনি</div>
+                </div>
+                <div class="calendar-grid" id="calendar-days"></div>
+            </div>
+        </div>
+        <div class="time-info">
+            <h2>বাংলাদেশ সময়</h2>
+            <div class="watch">
+                <p id="current-time"></p>
+            </div>
+        </div>
+    </div>
+        <footer class="footer" id="app-footer">
+            <p id="footer-text">© <span id="greg-year"></span> • <span id="bangla-year"></span> বঙ্গাব্দ • v<span id="app-version"></span></p>
+        </footer>
+        <script>
+            // Minimal dynamic footer year injection (kept separate to avoid altering other JS)
+            document.addEventListener('DOMContentLoaded', function() {
+                const now = new Date();
+                const gy = now.getFullYear();
+                document.getElementById('greg-year').textContent = gy;
+                        if (typeof gregorianToBangla === 'function') {
+                    const b = gregorianToBangla(now.getFullYear(), now.getMonth(), now.getDate());
+                    if (b && typeof b.year !== 'undefined') {
+                        document.getElementById('bangla-year').textContent = b.year;
+                    }
+                }
+                        // Version format: YYYY.MM.DD (latest update date)
+                        const ver = `${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')}`;
+                        document.getElementById('app-version').textContent = ver;
+            });
+        </script>
+    <script src="calendar.js" defer></script>
+</body>
+</html>
