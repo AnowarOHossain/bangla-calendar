@@ -197,8 +197,8 @@ function updateTodayInfo() {
   const now = new Date();
   const b = gregorianToBangla(now.getFullYear(), now.getMonth(), now.getDate());
   const banglaDayName = banglaWeekdays[now.getDay()];
-  const ordinal = toBanglaNumerals(b.day) + 'রা';
-  const banglaStr = `${banglaDayName} ${ordinal} ${banglaMonths[b.month]} ${toBanglaNumerals(b.year)} বঙ্গাব্দ`;
+  const banglaDay = toBanglaNumerals(b.day);
+  const banglaStr = `${banglaDayName}, ${banglaDay} ${banglaMonths[b.month]} ${toBanglaNumerals(b.year)}, বঙ্গাব্দ`;
   document.getElementById('today-bangla').innerText = banglaStr;
   document.getElementById('today-english').innerText =
     now.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
