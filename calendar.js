@@ -155,19 +155,25 @@ function renderCalendar() {
 
   // Populate days
   daysContainer.innerHTML = '';
+  
+  // Empty days at the beginning
   for (let i = 0; i < startDay; i++) {
-    daysContainer.appendChild(document.createElement('div')).className = 'calendar-day empty-day';
+    const emptyCell = document.createElement('div');
+    emptyCell.className = 'calendar-day empty-day';
+    daysContainer.appendChild(emptyCell);
   }
+  
+  // Current month days
   for (let d = 1; d <= daysInMonth; d++) {
     const cell = document.createElement('div');
     cell.className = 'calendar-day';
     const bDate = gregorianToBangla(currentYear, currentMonth, d);
     cell.innerHTML = `
-      <div class="text-base font-semibold">
+      <div class="bangla-day-number">
         ${toBanglaNumerals(bDate.day)}
       </div>
-      <div class="text-xs text-gray-600">${d}</div>
-      <div class="text-xs text-pink-700">
+      <div class="english-day-number">${d}</div>
+      <div class="bangla-month-label">
         ${banglaMonths[bDate.month]}
       </div>`;
     if (d === today.getDate() &&
@@ -176,6 +182,15 @@ function renderCalendar() {
       cell.classList.add('current-day');
     }
     daysContainer.appendChild(cell);
+  }
+  
+  // Fill remaining cells to complete the 6-week grid (42 total cells)
+  const totalCells = 42;
+  const filledCells = startDay + daysInMonth;
+  for (let i = filledCells; i < totalCells; i++) {
+    const emptyCell = document.createElement('div');
+    emptyCell.className = 'calendar-day empty-day';
+    daysContainer.appendChild(emptyCell);
   }
 }
 
@@ -221,7 +236,4 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCalendar();
   updateTodayInfo();
   updateTime();
-  
-  document.getElementById('prev-month').addEventListener('click', () => changeMonth(-1));
-  document.getElementById('next-month').addEventListener('click', () => changeMonth(1));
 });
